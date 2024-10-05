@@ -1,0 +1,26 @@
+{
+  "name": "simple_js",
+  "version": "1.0.0",
+  "description": "Just a simple stufs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ratulhasanruhan/simple_js.git"
+  },
+  "author": "Ratul Hasan Ruhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ratulhasanruhan/simple_js/issues"
+  },
+  "homepage": "https://github.com/ratulhasanruhan/simple_js#readme",
+  "dependencies": {
+    "jsonfile": "^6.1.0",
+    "moment": "^2.30.1",
+    "random": "^4.1.0",
+    "simple-git": "^3.25.0"
+  }
+}
