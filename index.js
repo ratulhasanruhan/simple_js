@@ -6,12 +6,11 @@ import momont from 'moment';
 const FILE_PATH = './dummy.json';
 
 
-const makeCommit = (n) => {
+const makeCommit = (n, commitIndex = 0) => {
 	if(n===0) return simpleGit().push();
-	const x = random.int(0, 54);
-	const y = random.int(0, 6);
-	const p = random.int(1, 7);
-	const DATE = momont().subtract(p, 'y').add(1, 'd').add(x,'w').add(y, 'd').format();
+	const daysInRange = 365;
+	const dayOffset = Math.floor((commitIndex / 1000) * daysInRange);
+	const DATE = momont().subtract(1, 'y').add(dayOffset, 'd').format();
 
 	const data = {
 	  date: DATE,
@@ -21,7 +20,7 @@ const makeCommit = (n) => {
 	
 	jsonfile.writeFile(FILE_PATH, data, ()=>{
 		simpleGit().add([FILE_PATH]).commit(DATE, {'--date': DATE});
-		makeCommit.bind(this, --n)();
+		makeCommit.bind(this, --n, commitIndex + 1)();
 	});
 	
 };
